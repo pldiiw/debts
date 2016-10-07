@@ -18,21 +18,21 @@ function csvToJSON (csv) {
             a.what = v;
           }
           return a;
-        }, {})
+        }, {});
     });
 }
 
-function cumulateSpentByUser(json, regexp) {
+function cumulateSpentByUser (json, regexp) {
   return json
     .reduce((a, v) => {
       return regexp.test(v.who) ? a + v.much : a;
     }, 0);
 }
 
-function findDebtByUser(json, from_regexp, to_regexp) {
+function findDebtByUser (json, fromRegExp, toRegExp) {
   const totalSpent = cumulateSpentByUser(json, /.*/);
-  const spentByFrom = cumulateSpentByUser(json, from_regexp);
-  const spentByTo = cumulateSpentByUser(json, to_regexp);
+  const spentByFrom = cumulateSpentByUser(json, fromRegExp);
+  // const spentByTo = cumulateSpentByUser(json, toRegExp);
   const users = retrieveUsers(json);
 
   const fairShare = totalSpent / users.length;
@@ -43,10 +43,10 @@ function findDebtByUser(json, from_regexp, to_regexp) {
 }
 
 function retrieveUsers (json) {
-    return json
-      .reduce((a, v) => {
-        return a.some(vs => vs === v.who) ? a : a.concat([v.who]);
-      }, []);
+  return json
+    .reduce((a, v) => {
+      return a.some(vs => vs === v.who) ? a : a.concat([v.who]);
+    }, []);
 }
 
 function main () {
@@ -64,13 +64,13 @@ function main () {
                                   (new RegExp(v)),
                                   (new RegExp(va)))
           };
-          if (va == v || debt.amount <= 0) {
+          if (va === v || debt.amount <= 0) {
             return aa;
           } else {
             return aa.concat(debt);
           }
         }, [])
-      }
+      };
     });
   console.log(JSON.stringify(debts, null, ' '));
- }
+}
