@@ -37,7 +37,7 @@ function findDebtByUser (json, fromRegExp, toRegExp) {
 
   const fairShare = totalSpent / users.length;
   const fromLacking = fairShare - spentByFrom;
-  const debt = fromLacking / users.length;
+  const debt = fromLacking / (users.length - 1);
 
   return debt;
 }
@@ -61,8 +61,9 @@ function main () {
           const debt = {
             to: va,
             amount: findDebtByUser(json,
-                                  (new RegExp(v)),
-                                  (new RegExp(va)))
+                                   (new RegExp(v)),
+                                   (new RegExp(va))
+            )
           };
           if (va === v || debt.amount <= 0) {
             return aa;
