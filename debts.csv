@@ -30,4 +30,9 @@ pld,10.30,2016-11-28,grocery
 pld,200,2016-12-05,nickel
 val,120,2016-12-05,nickel
 val,360,2016-12-05,rent
-val,-148.29,2016-12-05,misc
+val,-90,2016-12-05,withdrawal
+val,-7,2016-11-01,free-penality
+val,-20,2016-11-01,urban-laser
+val,-21,2016-11-01,withdrawal
+val,-2.29,2016-12-01,free
+val,-2,2016-10-01,free
