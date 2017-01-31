@@ -45,4 +45,11 @@ val,184,2017-01-05,rent
 pld,7.89,2017-01-04,grocery
 pld,9.52,2017-01-04,grocery
 val,345,2017-01-09,nickel
-val,13.2,2017-01-12,bread
+pld,6.69,2017-01-18,grocery
+pld,6.45,2017-01-25,grocery
+val,3.30,2017-01-10,bread
+pld,200,2017-01-11,nickel
+val,3.30,2017-01-12,bread
+val,2.45,2017-01-17,bread
+val,2.20,2017-01-18,bread
+val,35.30,2017-01-24,bread
