@@ -4,8 +4,8 @@ BEGIN { FS = "," }
 
 $1 == "pld" { p += $2 }
 $1 == "val" { v += $2 }
-{ "date -d "$3" +%B" | getline month
-  monthly[month][$1] += $2
+{ "date -d "$3" '+%B %Y'" | getline month_and_year
+  monthly[month_and_year][$1] += $2
   categorically[$1][$4] += $2 }
 
 END { print "Val spent "v"€"
@@ -23,11 +23,15 @@ END { print "Val spent "v"€"
         print "Here's the detail:"
 
         print "  Spendings per month:"
-        for ( month in monthly ) {
-          print "    In "month":"
-          for ( who in monthly[month] ) {
-            print "      "who" spent "monthly[month][who]"€."
+        for ( month_and_year in monthly ) {
+          print "    In "month_and_year":"
+          total_for_month = 0
+          for ( who in monthly[month_and_year] ) {
+            spent = monthly[month_and_year][who]
+            print "      "who" spent "spent"€."
+            total_for_month += spent
           }
+          print "      Total: "total_for_month"€."
         }
 
         print "  Spendings by category:"
