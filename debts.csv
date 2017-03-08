@@ -74,3 +74,7 @@ val,5.46,2017-02-16,grocery
 val,3.30,2017-02-16,bread
 val,3.30,2017-02-20,bread
 pld,2.29,2017-02-23,grocery
+pld,100,2017-03-04,nickel
+val,321,2017-03-06,nickel
+pld,13.13,2017-03-08,grocery
+pld,4.99,2017-03-08,grocery
