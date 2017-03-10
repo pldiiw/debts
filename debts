@@ -15,7 +15,7 @@ IFS="$SAFER_IFS"
 _ME="${0##*/}"
 
 _print_help() {
-  cat << 'EOF'
+  cat <<EOF
 Compute how much you owe to whom based on the data
 located in the 'debts.csv' file.
 
