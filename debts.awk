@@ -4,7 +4,9 @@ BEGIN { FS = "," }
 
 $1 == "pld" { p += $2 }
 $1 == "val" { v += $2 }
-{ "date -d "$3" '+%B %Y'" | getline month_and_year
+{ date = "date -d "$3" '+%B %Y'"
+  date | getline month_and_year
+  close(date)
   monthly[month_and_year][$1] += $2
   categorically[$1][$4] += $2 }
 
