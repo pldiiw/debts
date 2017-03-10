@@ -19,10 +19,8 @@ END { print "Val spent "v"€"
       else
         print "Accounts are balanced."
 
-      print ""
-
-      if ( verbose == 1 ) {
-        print "Here's the detail:"
+      if ( verbose == "y" ) {
+        print "\nHere's the detail:"
 
         print "  Spendings per month:"
         for ( month_and_year in monthly ) {

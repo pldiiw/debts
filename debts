@@ -7,48 +7,40 @@ set -o nounset
 set -o errexit
 set -o pipefail
 
-DEFAULT_IFS="${IFS}"
+DEFAULT_IFS="$IFS"
 SAFER_IFS=$'\n\t'
-IFS="${SAFER_IFS}"
+IFS="$SAFER_IFS"
 
 # Set to the program's basename.
-_ME=$(basename "${0}")
+_ME="${0##*/}"
 
 _print_help() {
-  cat <<HEREDOC
+  cat << 'EOF'
 Compute how much you owe to whom based on the data
 located in the 'debts.csv' file.
 
 Usage:
-  ${_ME} [<arguments>]
-  ${_ME} -h | --help
+  $_ME [<arguments>]
+  $_ME -h | --help
 
 Options:
   -v --verbose  Show details.
   -h --help  Show this screen.
-HEREDOC
+EOF
 }
 
 _compute_debts() {
-  if [[ "${1:-}" =~ ^-v|--verbose$ ]]
-  then
-    verbose=1
-  else
-    verbose=0
-  fi
-
-  cat debts.csv |
-    tail -n +2 |
-    awk -f debts.awk -v verbose=$verbose
+  tail -n +2 debts.csv | awk -f debts.awk -v verbose="$1"
 }
 
 _main() {
   # Avoid complex option parsing when only one program option is expected.
-  if [[ "${1:-}" =~ ^-h|--help$  ]]
-  then
+  if [[ "${1:-}" =~ ^-h|--help$  ]]; then
     _print_help
+  elif [[ "${1:-}" =~ ^-v|--verbose ]]; then
+    _compute_debts 'y'
   else
-    _compute_debts "${@}"
+    _compute_debts 'n'
   fi
 }
 
