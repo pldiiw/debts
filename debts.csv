@@ -88,4 +88,13 @@ pld,80,2017-03-16,cash
 pld,250,2017-03-19,nickel
 pld,3.83,2017-03-30,grocery
 pld,7.98,2017-03-30,grocery
-val,-8.13,2017-03-29
+val,-8.13,2017-03-29,free
+val,326,2017-04-04,nickel
+pld,13.99,2017-04-04,grocery
+pld,1.79,2017-04-04,grocery
+pld,9.43,2017-04-04,grocery
+pld,250,2017-04-05,rent
+val,182,2017-04-05,caf
+pld,250,2017-04-05,nickel
+pld,2.50,2017-04-07,grocery
+pld,3.68,2017-04-07,grocery
