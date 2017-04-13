@@ -83,7 +83,7 @@ val,182,2017-03-05,caf
 pld,12.99,2017-03-13,grocery
 pld,1.99,2017-03-13,grocery
 pld,7.92,2017-03-13,grocery
-val,60,2017-03-16,grocery
+val,80,2017-03-16,grocery
 pld,80,2017-03-16,cash
 pld,250,2017-03-19,nickel
 pld,3.83,2017-03-30,grocery
@@ -98,3 +98,7 @@ val,182,2017-04-05,caf
 pld,250,2017-04-05,nickel
 pld,2.50,2017-04-07,grocery
 pld,3.68,2017-04-07,grocery
+val,39.72,2017-04-13,grocery
+pld,2.49,2017-04-13,grocery
+pld,1.99,2017-04-13,grocery
+pld,2.15,2017-04-13,bread
